@@ -1,0 +1,130 @@
+.navbar-custom {
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.book-card img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.best-seller {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.available {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #28a745;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.text-snippet {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.book-card:hover .text-snippet {
+    display: block;
+}
+.user-info {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    text-align: left;
+    z-index: 1000;
+}
+.user-info a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+.user-info a:hover {
+    text-decoration: underline;
+}
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+.user-menu:hover .user-info {
+    display: block;
+}
+.search-container {
+    flex-grow: 1;
+    text-align: center;
+}
+.search-container form {
+    display: inline-block;
+    width: 100%;
+}
+.btn-custom {
+    margin-top: 10px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+.dropdown-item img {
+    margin-right: 10px;
+}
+.add-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.add-button img {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+.add-button button {
+    background: transparent;
+    border: none;
+    padding: 0;
+}

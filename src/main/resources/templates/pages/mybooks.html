@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Books</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .book-card {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      align-items: center;
+    }
+    .book-thumbnail {
+      max-width: 150px;
+      width: 100%;
+      margin-right: 20px;
+    }
+    .book-details {
+      flex: 1;
+      min-width: 200px;
+    }
+    .book-title {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .book-author {
+      font-size: 1.2em;
+      color: #666;
+    }
+    .book-snippet {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #333;
+    }
+    .book-published, .book-description {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #777;
+    }
+    .best-seller {
+      color: red;
+      font-weight: bold;
+    }
+    .available {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div th:each="book : ${books}" class="book-card">
+    <img th:src="${book.thumbnail}" alt="Thumbnail" class="book-thumbnail img-fluid">
+    <div class="book-details">
+      <h2 th:text="${book.title}" class="book-title">Book Title</h2>
+      <h3 th:text="'by ' + ${book.author}" class="book-author">Author</h3>
+      <div th:if="${book.title.toLowerCase().contains('best seller')}" class="best-seller">Best Seller</div>
+      <div class="available">Available</div>
+      <p th:text="${book.textSnippet}" class="book-snippet">This is a text snippet.</p>
+      <p th:text="${book.description}" class="book-description">This is a detailed description of the book, providing more information about the content, context, and significance of the book. This section can be longer and provide comprehensive insights.</p>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+<body>
+<div id="books-container" th:fragment="book-list">
+    <div class="row">
+        <div class="col-md-3" th:each="book : ${books}">
+            <div class="book-card">
+                <form th:action="@{/add-to-mybooks/{bookId}(bookId=${book.id})}" method="post" class="add-button" onsubmit="addBook(event, this)">
+                    <button type="submit" th:if="${!userBookIds.contains(book.id)}">
+                        <img src="/images/add.png" alt="Add to My Books">
+                    </button>
+                    <button type="button" th:if="${userBookIds.contains(book.id)}" disabled>
+                        <img src="/images/check.png" alt="Already in My Books">
+                    </button>
+                </form>
+                <img th:src="${book.thumbnail}" alt="Thumbnail">
+                <h5 th:text="${book.title}">Book Title</h5>
+                <p th:text="'by ' + ${book.author}">Author</p>
+                <div th:if="${book.title.toLowerCase().contains('best seller')}" class="best-seller">Best Seller</div>
+                <div class="available">Available</div>
+                <div class="text-snippet" th:text="${book.textSnippet}">This is a text snippet.</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
